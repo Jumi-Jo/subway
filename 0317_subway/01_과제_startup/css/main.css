@@ -1,0 +1,407 @@
+@charset "utf-8";
+
+/*애니메이션 안됨*/
+/*사진 사이즈 고정 안됨*/
+
+@keyframes aa{
+  0%{transform: translate(0, 50px); opacity: 0;}
+  25%{transform: translate(0,0); opacity: 1;}
+  50%{transform: translate(0,0); opacity: 1;}
+  75%{transform: translate(0,0); opacity: 1;}
+  100%{transform: translate(0,0); opacity: 0;}
+}
+@keyframes bb{
+  0%{transform: translate(0,50px); opacity: 0;}
+  25%{transform: translate(0,50px); opacity: 1;}
+  50%{transform: translate(0,0); opacity: 1;}
+  75%{transform: translate(0,0); opacity: 1;}
+  100%{transform: translate(0,0); opacity: 0;}
+}
+@keyframes cc{
+  0%{transform: translate(0,50px); opacity: 0;}
+  25%{transform: translate(0,50px); opacity: 1;}
+  50%{transform: translate(0,0); opacity: 1;}
+  75%{transform: translate(0,0); opacity: 1;}
+  100%{transform: translate(0,0); opacity: 0;}
+}
+@keyframes dd{
+  0%{transform: translate(0,0); }
+  50%{transform: translate(20px,0); }
+  100%{transform: translate(0,0);}
+}
+
+/*공통*/
+#wrap{
+  min-width: 1200px;
+}
+.inner{
+  width: 1200px;
+  margin: 0 auto;
+  /*background-color: red;*/
+  position: relative;
+}
+
+
+/*header*/
+header{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+}
+header h1{
+ padding: 30px 0 0;
+}
+
+header nav{
+  position: absolute;
+  top: 20px;
+  left: 350px;
+}
+header nav .gnb{
+  display: flex;
+  justify-content: space-between;
+}
+
+header nav .gnb > li{
+  width: 170px;
+  height: 70px;
+  padding: 20px 50px;
+  text-align: center;
+  position: relative;
+}
+header nav .gnb > li > a{
+  display: block;
+  color: #fff;
+  font-size: 20px;
+}
+header nav .gnb > li .depth2{
+ display: none;
+ position: absolute;
+ top: 67px;
+ left: 50%;
+ transform: translateX(-50%);
+ width: 170px;
+ background-color: #000;
+ border-top: 0.5px solid #333;
+ border-radius: 0 0 25px 0;
+ padding: 20px 30px 50px;
+ text-align: left;
+ line-height: 2;
+ font-weight: 500;
+ list-style: circle;
+}/*리ㅛㅡ트 스타일 점 만들고
+옆으로 밀기 애니메이션*/
+header nav .gnb > li .depth2 li a{
+  color: #fff;
+}
+header nav .gnb > li:hover{
+  background-color: #000;
+}
+header nav .gnb > li:hover .depth2{
+  display: block;
+}
+header nav .gnb > li .depth2 li:hover a{
+  background: url(../images/depth2_bg.png) no-repeat left top;
+  animation-name: dd;
+  animation-timing-function: linear;
+  animation-duration: 3s;
+}/*애니ㅔㅁ이션이 작동안됨*/
+
+/*.main-visual*/
+.main-visual{
+  height: 800px;
+  background-image:  url(../images/mv_01.jpg);
+  background-repeat: no-repeat;
+  background-position: center top;
+  color: #fff;
+}
+
+.main-visual .inner::before{
+ content: "";
+ display: inline-block;
+ width: 350px;
+ height: 50px;
+ background: url(../images/mvisual_entxt.png) no-repeat center;
+ position: absolute;
+ top: 260px;
+ left: 0px;
+ animation-name: aa;
+ animation-duration: 1.5s;
+ animation-timing-function: ease;
+ animation-delay: 1s;
+}
+.main-visual .inner h2{
+  font-size: 72px;
+  font-weight: 800;
+  position: absolute;
+  top: 370px;
+  left: 0px;
+  animation-name: bb;
+  animation-duration: 1.5s;
+  animation-timing-function: ease;
+  animation-delay: 1.5s;
+}
+.main-visual .inner p{
+  font-size: 24px;
+  font-weight: 500;
+  position: absolute;
+  top: 500px;
+  left: 0px;
+  animation-name: cc;
+  animation-duration: 1.5s;
+  animation-timing-function: ease;
+  animation-delay: 2s;
+}
+/*애니메이션이 매끄럽지 않음*/
+
+/*.mini-banner*/
+.mini-banner{
+  width: 100%;
+  height: 345px;
+  background:  linear-gradient(90deg, rgba(70,100,188,1) 0%, rgba(154,80,231,1) 68%);
+}
+.mini-banner .inner{
+  padding: 90px 0;
+}
+.mini-banner .inner ul{
+  display: flex;
+}
+.mini-banner .inner ul li{
+  width: calc(100% / 4);
+  padding: 0 50px;
+  text-align: center;
+  color: #ddd;
+  font-size: 18px;
+  background-color: yellow;
+  border-right: 1px solid rgba(125, 125, 125, 0.8);
+}
+.mini-banner .inner ul li span{
+  display: block;
+}
+.mini-banner .inner ul li::before{
+  content: "";
+  display: block;
+  width: 110px;
+  height: 50px;
+  margin: 0 auto;
+}
+.mini-banner .inner ul li:nth-child(1){
+  background: url(../images/count_ico_01.png) no-repeat center top;
+}
+.mini-banner .inner ul li:nth-child(2){
+  background: url(../images/count_ico_02.png) no-repeat center top;
+}
+.mini-banner .inner ul li:nth-child(3){
+  background: url(../images/count_ico_03.png) no-repeat center top;
+}
+.mini-banner .inner ul li:nth-child(4){
+  background: url(../images/count_ico_04.png) no-repeat center top;
+  border-right: 0 ;
+}
+.mini-banner .inner ul li .sp1{
+  margin: 20px 0 10px;
+}
+.mini-banner .inner ul li .sp2{
+  color: #fff;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+/*<!--.business-->*/
+.business .inner{
+  padding-top: 200px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 270px;
+}
+.business .inner .busi-info{
+  width: 330px;
+  height: 480px;
+}
+.business .busi-img{
+  width: 656px;
+  height: 454px;
+  background: url(../images/biz_01.jpg) no-repeat center;
+}
+.business .busi-img:hover{
+  transform: scale(1.2);
+  overflow: hidden;
+}/*박스 사이즈 고정 안ㄷ됨*/
+
+.business .inner .busi-info .busi-wrap{
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.business .inner .busi-info h2{
+  font-size: 48px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.business .inner .busi-info .p1{
+  color: #aaa;
+  line-height: 1.6;
+  font-size: 18px;
+}
+.business .inner .busi-info .busi-txt1{
+  width: 350px;
+  height: 310px;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  font-size: 22px;
+}
+.business .inner .busi-info .busi-txt2{
+  width: 350px;
+  height: 300px;
+  position: absolute;
+  top: 100px;
+  left: 420px;
+}
+.business .inner .busi-info .busi-txt1 .p2{
+  border-bottom: 1px solid #aaa;
+  padding: 15px 0;
+}
+.business .inner .busi-info .busi-txt1 .p2:nth-child(1){
+  border-bottom: 1px solid #333;
+}
+
+.business .inner .busi-info .busi-txt2{
+  background-color: #2d4478;
+  padding: 50px;
+  position: relative;
+  z-index: 20;
+}
+.business .inner .busi-info .busi-txt2 h3{
+  color: #fff;
+  font-size: 28px;
+  font-weight: 700;
+}
+.business .inner .busi-info .busi-txt2 p{
+  color: #aaa;
+  margin-top: 20px;
+  border-top: 1px solid #aaa;
+  padding: 20px 0 30px;
+}
+.business .inner .busi-info .busi-txt2 a{
+  display: inline-block;
+  color: #aaa;
+  margin-right: 10px;
+}
+.business .inner .busi-info .busi-txt2 a img{
+  position: absolute;
+  left: 150px;
+  bottom: 65px;
+}
+
+
+/*infomation*/
+.infomation{
+  height: 750px;
+  background: url(../images/notice_bg.jpg) no-repeat center top;
+}
+.infomation h2{
+  font-size: 60px;
+  font-weight: 900;
+  text-align: center;
+  padding-top: 150px;
+  color: #fff;
+}
+.infomation .inner{
+  display: flex;
+  justify-content: space-between;
+}
+.infomation .inner .d1{
+  width: 385px;
+  height: 330px;
+  padding: 45px;
+  background-color: #fff;
+  margin-top: 50px;
+  position: relative;
+}
+.infomation .inner .d1 h4{
+  font-size: 22px;
+  font-weight: normal;
+  padding-bottom: 20px;
+  border-bottom: 1px dashed #aaa;
+}
+.infomation .inner .d1 .p3{
+  color: #aaa;
+  padding-top: 20px;
+  line-height: 1.5;
+}
+.infomation .inner .d1 .p4{
+  position: absolute;
+  left: 45px;
+  bottom: 40px;
+}
+.infomation .inner .d1 a{
+  display: block;
+  width: 24px;
+  height: 24px;
+  background: url(../images/more.png) no-repeat center;
+  position: absolute;
+  bottom: 40px;
+  right: 45px;
+  font-size: 0;
+  color: transparent;
+}
+/*마우스 올리먄 보더박스*/
+.infomation .inner .d1:hover{
+  border: 10px solid #f77e34;
+}
+
+/*footer*/
+footer{
+  height: 274px;
+  background-color: #333;
+}
+footer .f-logo{
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 131px;
+  height: 66px;
+  background: url(../images/logo.png) no-repeat center;
+}
+footer address{
+  position: absolute;
+  top: 100px;
+  left: 230px;
+  color: #979797;
+}
+footer address span{
+  display: inline-block;
+  margin-right: 20px;
+  margin-bottom: 3px;
+}
+footer address span:nth-child(2){
+  color: #6fb532;
+}
+
+footer .sns{
+  position: absolute;
+  top: 100px;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/*go-top*/
+.go-top{
+  display: block;
+  width: 70px;
+  height: 70px;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  line-height: 70px;
+  padding: 0 10px;
+}
